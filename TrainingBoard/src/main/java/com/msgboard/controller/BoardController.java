@@ -1,5 +1,5 @@
 package com.msgboard.controller;
 
-public class UserController {
+public class BoardController {
 
 }

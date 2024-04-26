@@ -1,5 +1,5 @@
 package com.msgboard.repository;
 
-public class UserRipository {
+public class BoardRipository {
 
 }

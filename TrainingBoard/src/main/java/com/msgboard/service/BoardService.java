@@ -1,5 +1,5 @@
 package com.msgboard.service;
 
-public class UserService {
+public class BoardService {
 
 }
