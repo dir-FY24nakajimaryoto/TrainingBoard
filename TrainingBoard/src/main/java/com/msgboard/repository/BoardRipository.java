@@ -12,11 +12,11 @@ import com.msgboard.entity.Board;
  */
 public interface BoardRipository extends JpaRepository<Board, Integer>{
 
-	/** 削除メソッドを呼び出す */
-	public void deleteById(int id);
-	/** 単数検索メソッドを呼び出す */
-	public Board findById(int id);
-	/** スレッド検索メソッドを呼び出す */
-	public List<Board> findByTitleContaining(String key);
-	
+//	/** 削除メソッドを呼び出す */
+//	public void deleteById(int id);
+//	/** 単数検索メソッドを呼び出す */
+//	public Board findById(int id);
+//	/** スレッド検索メソッドを呼び出す */
+//	public List<Board> findByTitleContaining(String key);
+//	
 }
