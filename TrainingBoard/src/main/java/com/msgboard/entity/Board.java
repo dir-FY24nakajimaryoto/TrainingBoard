@@ -18,7 +18,7 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name="default")
+@Table(name="board")
 public class Board {
 	
 	/**
