@@ -13,6 +13,9 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 
+/**
+ * Boardエンティティクラス
+ */
 @Entity
 @Data
 @Table(name="default")
