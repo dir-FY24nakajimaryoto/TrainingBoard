@@ -16,36 +16,31 @@ import lombok.Data;
 /**
  * Boardエンティティクラス
  */
-@Entity
 @Data
+@Entity
 @Table(name="board")
 public class Board {
 	
-	/**
-	 * 主キー
-	 */
+	/** 主キー */
 	@Id
-	@Column
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	@Column(nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	
-	/**
-	 * スレッド設立時刻の自動入力
-	 */
+	
+	/** スレッド設立時刻の自動入力 */
 	@Column
 	private Date createDate;
 	
-	/**
-	 * スレッドタイトル(要修正.後にフォーマットに含める)
-	 */
+	
+	/** スレッドタイトル(要修正.後にフォーマットに含める) */
 	@Column(nullable = false)
 	@NotEmpty(message = "タイトルを入力してください")
 	@Size(max = 100, message = "タイトルは100字以下で入力してください")
 	private String title;
 	
-	/**
-	 * 質問内容
-	 */
+	
+	/** 質問内容 */
 	@Column(nullable = false)
 	@NotEmpty(message = "内容を入力してください")
 	private String contents;

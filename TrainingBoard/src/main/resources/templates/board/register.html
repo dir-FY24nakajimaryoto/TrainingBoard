@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+	<head>
+	    <meta charset="utf-8">
+	    <title>TrainingBoard for Dir</title>
+	    <link rel="stylesheet" th:href="@{/css/board/register.css}">
+	</head>
+	
+	<body>
+	    <h1>Msg board</h1>
+	    <h2>board登録</h2>
+	    
+	    <form method="post" th:action="@{/board/register}" th:object="${board}">
+	        <label for="title">タイトル</label>
+	        <input type="text" th:field="*{title}">
+	        <br>
+	        <label for="contents">内容</label>
+	        <input type="text" th:field="*{contents}">
+	        <br>
+	        <br>
+	        <input type="submit" value="登録実行">
+	        <a th:href="@{/board/list}">登録せずに一覧に戻る</a>
+	    </form>
+	
+	</body>
+
+
+</html>

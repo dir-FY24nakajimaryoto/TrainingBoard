@@ -1,27 +1,39 @@
 <!DOCTYPE html>
+
+
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <title>Tutorial of Develop</title>
-    <link rel="stylesheet" th:href="@{/css/board/list.css}">
-</head>
-<body>
-    <h1>研修掲示板@Dir</h1>
-    <h2>スレッド一覧</h2>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>名前</th>
-            <th>性別</th>
-            <th>年齢</th>
-            <th>メールアドレス</th>
-        </tr>
-        <tr th:each="board : ${boardlist}">
-            <td th:text="${board.id}"></td>
-            <td th:text="${#dates.format(obj.createDate, 'yyyy/MM/dd)}"></td>
-            <td th:text="${board.title}"></td>
-            <td th:text="${board.contents}"></td>
-        </tr>
-    </table>
-</body>
+
+
+	<head>
+	    <meta charset="utf-8">
+	    <title>TrainingBoard for Dir</title>
+	    <link rel="stylesheet" th:href="@{/css/board/list.css}">
+	</head>
+	
+	
+	<body>
+	    <h1>Board Test</h1>
+	    <h2>スレッド一覧</h2>
+	    
+	    <a th:href="@{/board/register}">スレッドの登録</a>
+	
+	    <table>
+	        <tr>
+	            <th>ID</th>
+	            <th>作成日</th>
+	            <th>タイトル</th>
+	            <th>内容</th>
+	        </tr>
+	        <tr th:each="board : ${boardlist}">
+	            <td th:text="${board.id}"></td>
+	            <td th:text="${#dates.format(board.createDate, 'yyyy/MM/dd')}"></td>
+	            <td th:text="${board.title}"></td>
+	            <td th:text="${board.contents}"></td>
+	        </tr>
+	
+	    </table>
+	
+	</body>
+
+
 </html>
