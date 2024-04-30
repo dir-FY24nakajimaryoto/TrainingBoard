@@ -20,14 +20,20 @@
 	           <option value="" th:text="該当レッスンを選択してください">
 	           <option th:each="item:${T(com.msgboard.entity.Board.Lesson).values()}" th:value="${item}" th:text="${item}">
 	        </select>
+	        <span th:errors="*{lesson}" class="err"></span>
 	        <br>
+	        
 	        <label for="title">タイトル</label>
 	        <input type="text" th:field="*{title}">
+	        <span th:errors="*{title}" class="err"></span>
 	        <br>
+	        
 	        <label for="contents">内容</label>
 	        <input type="text" th:field="*{contents}">
+	        <span th:errors="*{contents}" class="err"></span>
 	        <br>
 	        <br>
+	        
 	        <input type="submit" value="登録実行">
 	        <a th:href="@{/board/list}">登録せずに一覧に戻る</a>
 	    </form>

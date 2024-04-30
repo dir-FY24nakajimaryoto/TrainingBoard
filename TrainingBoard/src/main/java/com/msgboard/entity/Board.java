@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -71,6 +72,7 @@ public class Board {
 	/** Lesson No. */
 	@Column
 	@Enumerated(EnumType.STRING)
+	@NotNull
 	private Lesson lesson;
 	
 	
@@ -81,7 +83,7 @@ public class Board {
 	private String title;
 	
 	
-	/** 質問内容 */
+	/** 質問内容(10字以上) */
 	@Column(nullable = false)
 	@NotEmpty(message = "内容を入力してください")
 	private String contents;
