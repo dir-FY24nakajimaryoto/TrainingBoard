@@ -10,7 +10,7 @@ import com.msgboard.entity.Board;
 /**
  * Boardリポジトリークラス
  */
-public interface BoardRipository extends JpaRepository<Board, Integer>{
+public interface BoardRepository extends JpaRepository<Board, Integer>{
 
 //	/** 削除メソッドを呼び出す */
 //	public void deleteById(int id);

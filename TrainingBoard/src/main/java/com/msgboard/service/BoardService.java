@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.msgboard.entity.Board;
-import com.msgboard.repository.BoardRipository;
+import com.msgboard.repository.BoardRepository;
 
 import jakarta.transaction.Transactional;
 
@@ -18,7 +18,7 @@ import jakarta.transaction.Transactional;
 public class BoardService {
 
 	@Autowired
-	private BoardRipository b_repos;
+	private BoardRepository b_repos;
 	
 	
 	/** 全件検索 */
