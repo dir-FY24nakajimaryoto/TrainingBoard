@@ -15,29 +15,36 @@
 	    <h1>Board Test</h1>
 	    <h2>スレッド一覧</h2>
 	    
-	    <a th:href="@{/board/register}">スレッドの登録</a>
-	
-	    <table>
-	        <tr>
-	            <th>ID</th>
-	            <th>作成日</th>
-	            <th>レッスンNo.</th>
-	            <th>タイトル</th>
-	            <th>内容</th>
-	            <th></th>
-	        </tr>
-	        <tr th:each="board : ${boardlist}">
-	            <td th:text="${board.id}"></td>
-	            <td th:text="${board.updateDate != null}? ${#dates.format(board.updateDate,'yyyy/MM/dd HH:mm')+'(latest)'}:${#dates.format(board.createDate,'yyyy/MM/dd HH:mm')}"></td>
-	            <td th:text="${board.lesson}"></td>
-	            <td th:text="${board.title}"></td>
-	            <td th:text="${board.contents}"></td>
-	            <td>
-	               <a th:href="@{/board/update/{id}/(id=${board.id})}">編集</a>
-	            </td>
-	        </tr>
-	
-	    </table>
+	    <form name="frm" method="post" th:action="@{/board/list}">
+		    <a th:href="@{/board/register}">スレッドの登録</a>
+		    <input type="submit" name="deleteRun" id="deleteRun" value="選択したスレッドを一括削除">
+		
+		    <table>
+		        <tr>
+		            <th class="center">(選択)</th>
+		            <th>ID</th>
+		            <th>作成日</th>
+		            <th>レッスンNo.</th>
+		            <th>タイトル</th>
+		            <th>内容</th>
+		            <th></th>
+		        </tr>
+		        <tr th:each="board : ${boardlist}">
+		            <td class="center"><input type="checkbox" name="idck" th:value="${board.id}"></td>
+		            <td th:text="${board.id}"></td>
+		            <td th:text="${board.updateDate != null}? ${#dates.format(board.updateDate,'yyyy/MM/dd HH:mm')+'(latest)'}:${#dates.format(board.createDate,'yyyy/MM/dd HH:mm')}"></td>
+		            <td th:text="${board.lesson}"></td>
+		            <td th:text="${board.title}"></td>
+		            <td th:text="${board.contents}"></td>
+		            <td>
+		               <a th:href="@{/board/update/{id}/(id=${board.id})}">編集</a>
+		            </td>
+		        </tr>
+		    </table>
+	    
+	    </form>
+	    
+	    <script th:src="@{/js/board/list.js}"></script>
 	
 	</body>
 

@@ -1,6 +1,8 @@
 package com.msgboard.controller;
 
 import java.util.Date;
+import java.util.Iterator;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,9 +12,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.msgboard.entity.Board;
+import com.msgboard.repository.BoardRipository;
 import com.msgboard.service.BoardService;
+
+import jakarta.transaction.Transactional;
 
 
 @Controller
@@ -75,6 +81,16 @@ public class BoardController {
 		board.setUpdateDate(new Date());
 		
 		service.saveBoard(board);
+		
+		return "redirect:/board/list";
+	}
+	
+	
+	/** スレッド削除処理 */
+	@PostMapping(path="list", params="deleteRun")
+	public String deleteRun(@RequestParam(name="idck") Set<Integer> idck, Model model) {
+		
+		service.deleteBoard(idck);
 		
 		return "redirect:/board/list";
 	}

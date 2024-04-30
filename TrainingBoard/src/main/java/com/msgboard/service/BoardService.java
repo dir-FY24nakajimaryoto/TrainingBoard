@@ -1,6 +1,7 @@
 package com.msgboard.service;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,17 @@ public class BoardService {
 	@Transactional
 	public Board saveBoard(Board board) {
 		return b_repos.save(board);
+	}
+	
+	
+	/** スレッドの削除処理 */
+	@Transactional
+	public void deleteBoard(Set<Integer> idck) {
+		
+		for (Integer id : idck) {
+			b_repos.deleteById(id);
+		}
+		
 	}
 	
 	
