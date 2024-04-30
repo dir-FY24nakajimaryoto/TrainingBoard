@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	   <meta charset="utf-8">
+	   <title>Tutorial of Develop</title>
+	   <link rel="stylesheet" th:href="@{/css/user/list.css}">
+	</head>
+	
+	<body>
+	    <h1>User情報管理システム</h1>
+	    <h2>User登録</h2>
+
+	    <form method="post" th:action="@{/logout}">
+	        <input type="submit" value="ログアウト">
+	    </form><br>
+
+        <a th:href="@{/user/register}">Userの登録</a>
+        <br><br>
+        
+        <table>
+            <h3>ユーザー情報</h3>>
+            <tr>
+                <th>ID</th>
+                <th>名前</th>
+                <th></th>
+            </tr>
+        </table>
+        
+        <table>
+            <h3>あなたが作成したスレッド</h3>
+            <th>レッスンNo.</th>
+            <th>作成日</th>
+            <th>タイトル</th>
+        </table>
+	        
+	    <script th:src="@{/js/user/list.js}"></script>
+	
+	</body>
+
+</html>
