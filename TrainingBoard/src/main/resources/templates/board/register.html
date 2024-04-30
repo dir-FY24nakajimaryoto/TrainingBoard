@@ -15,6 +15,12 @@
 	    <h2>board登録</h2>
 	    
 	    <form method="post" th:action="@{/board/register}" th:object="${board}">
+	        <label for="lesson">レッスンNo.</label>
+	        <select th:field="*{lesson}">
+	           <option value="" th:text="該当レッスンを選択してください">
+	           <option th:each="item:${T(com.msgboard.entity.Board.Lesson).values()}" th:value="${item}" th:text="${item}">
+	        </select>
+	        <br>
 	        <label for="title">タイトル</label>
 	        <input type="text" th:field="*{title}">
 	        <br>
