@@ -32,6 +32,10 @@ public class Board {
 	@Column
 	private Date createDate;
 	
+	/** スレッド更新時刻の自動入力 */
+	@Column
+	private Date updateDate;
+	
 	
 	/** スレッドタイトル(要修正.後にフォーマットに含める) */
 	@Column(nullable = false)

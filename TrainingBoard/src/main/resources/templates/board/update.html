@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	    <meta charset="utf-8">
+	    <title>Tutorial of Develop</title>
+	    <link rel="stylesheet" th:href="@{/css/board/update.css}">
+	</head>
+
+	<body>
+	    <h1>board情報管理システム</h1>
+	    <h2>board更新</h2>
+	    
+	    <form method="post" th:action="@{/board/update/{id}/(id=${board.id})}" th:object="${board}">
+	        <label for="id">ID</label>
+	        <input type="hidden" id="id" name="id" th:value="*{id}" th:text="*{id}">
+	        <br>
+	        <label for="title">タイトル</label>
+	        <input type="text" th:field="*{title}">
+	        <br>
+	        <label for="contents">内容</label>
+	        <input type="text" th:field="*{contents}">
+	        <br>
+	        <br>
+	        <input type="submit" value="更新実行">
+	        <a th:href="@{/board/list}">更新せずに一覧に戻る</a>
+	    
+	    </form>
+	    
+	</body>
+	
+	
+</html>

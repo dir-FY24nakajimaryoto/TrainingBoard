@@ -23,12 +23,16 @@
 	            <th>作成日</th>
 	            <th>タイトル</th>
 	            <th>内容</th>
+	            <th></th>
 	        </tr>
 	        <tr th:each="board : ${boardlist}">
 	            <td th:text="${board.id}"></td>
-	            <td th:text="${#dates.format(board.createDate, 'yyyy/MM/dd')}"></td>
+	            <td th:text="${board.updateDate != null}? ${#dates.format(board.updateDate,'yyyy/MM/dd HH:mm')+'(latest)'}:${#dates.format(board.createDate,'yyyy/MM/dd HH:mm')}"></td>
 	            <td th:text="${board.title}"></td>
 	            <td th:text="${board.contents}"></td>
+	            <td>
+	               <a th:href="@{/board/update/{id}/(id=${board.id})}">編集</a>
+	            </td>
 	        </tr>
 	
 	    </table>
